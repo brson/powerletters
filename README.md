@@ -53,12 +53,14 @@ let s: String = "foo".S();
 ### Power ignore `Result` - kick that `Result` to the curb!
 
 ```
-use powerletters::*:
+use powerletters::*;
+use std::io::Write;
 
-write_logline(&logline).I();
+let mut buf = Vec::new();
+write!(&mut buf, "hello").I();
 
 // or
-I(write_logline(&logline));
+I(write!(&mut buf, "world"));
 ```
 
 Note this is superior to `let _ = ...`
