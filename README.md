@@ -20,7 +20,7 @@ let bagostuff = vec!["a", "b", "c"];
 let newbag = bagostuff.C();
 
 // or
-let newbag = C(bagostuff);
+let newbag = C(&bagostuff);
 ```
 
 
@@ -42,7 +42,7 @@ let thing = X(good_thing);
 ### "To Owned"
 
 ```
-let yourpath = &Path("chill");
+let yourpath = Path::new("chill");
 let mypath = yourpath.O();
 
 // or
@@ -59,7 +59,7 @@ write_logline(&logline).I();
 I(write_logline(&logline));
 ```
 
-Note this is superiour to `let _ = ...`
+Note this is superior to `let _ = ...`
 because the `let` version is untyped and can
-introduce unintented bugs like ignoring futures.
+introduce unintended bugs like ignoring futures.
 
