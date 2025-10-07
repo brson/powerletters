@@ -225,6 +225,22 @@ fn test_x_result_parse_int() {
 }
 
 #[test]
+fn test_x_result_display_only() {
+    #[derive(Debug)]
+    struct DisplayOnlyError(String);
+
+    impl std::fmt::Display for DisplayOnlyError {
+        fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+            write!(f, "{}", self.0)
+        }
+    }
+
+    let result: Result<i32, DisplayOnlyError> = Ok(42);
+    let value = X(result);
+    assert_eq!(value, 42);
+}
+
+#[test]
 fn test_i_result_function() {
     let result: Result<(), std::io::Error> = Ok(());
     I(result);

@@ -221,7 +221,7 @@ impl<T> PowerExpect for Option<T> {
     }
 }
 
-impl<T, E: std::error::Error> PowerExpect for Result<T, E> {
+impl<T, E: std::fmt::Display> PowerExpect for Result<T, E> {
     type Output = T;
 
     #[track_caller]
