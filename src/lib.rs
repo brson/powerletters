@@ -1,4 +1,13 @@
 //! Concise spellings of common Rust operations.
+//!
+//! All operations are provided as both functions and methods.
+//! Sometimes one reads better than the other.
+//!
+//! # Examples
+//!
+//! ```
+//! use powerletters::*;
+//! ```
 
 /// Power [`Clone`].
 #[allow(non_snake_case)]
@@ -33,7 +42,7 @@ pub fn I<T, E>(r: Result<T, E>) {
     let _ = r;
 }
 
-/// Power `expect`.
+/// Power `expect` for [`Result`] and [`Option`].
 #[track_caller]
 #[allow(non_snake_case)]
 pub fn X<T>(v: T) -> T::Output
@@ -98,7 +107,7 @@ pub impl<T, E> ResultIgnore<T, E> for Result<T, E> {
     }
 }
 
-/// Power `expect`.
+/// Power `expect` for [`Result`] and [`Option`].
 pub trait PowerExpect {
     type Output;
     #[allow(non_snake_case)]
