@@ -10,4 +10,3 @@ keywords = ["utility", "convenience"]
 categories = ["rust-patterns"]
 
 [dependencies]
-extension-trait = "1.0"

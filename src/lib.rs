@@ -139,8 +139,12 @@ where
 
 
 /// Power [`Clone`].
-#[extension_trait::extension_trait]
-pub impl<T> PowerClone<T> for T
+pub trait PowerClone {
+    #[allow(non_snake_case)]
+    fn C(&self) -> Self;
+}
+
+impl<T> PowerClone for T
 where
     T: Clone,
 {
@@ -151,8 +155,13 @@ where
 }
 
 /// Power [`ToOwned`].
-#[extension_trait::extension_trait]
-pub impl<T> PowerToOwned for T
+pub trait PowerToOwned {
+    type Owned;
+    #[allow(non_snake_case)]
+    fn O(&self) -> Self::Owned;
+}
+
+impl<T> PowerToOwned for T
 where
     T: ToOwned + ?Sized,
 {
@@ -165,8 +174,12 @@ where
 }
 
 /// Power [`ToString`].
-#[extension_trait::extension_trait]
-pub impl<T> PowerToString for T
+pub trait PowerToString {
+    #[allow(non_snake_case)]
+    fn S(&self) -> String;
+}
+
+impl<T> PowerToString for T
 where
     T: ToString + ?Sized,
 {
@@ -177,8 +190,12 @@ where
 }
 
 /// Power ignore [`Result`] - kick that `Result` to the curb!
-#[extension_trait::extension_trait]
-pub impl<T, E> ResultIgnore<T, E> for Result<T, E> {
+pub trait ResultIgnore {
+    #[allow(non_snake_case)]
+    fn I(self);
+}
+
+impl<T, E> ResultIgnore for Result<T, E> {
     #[track_caller]
     #[allow(non_snake_case)]
     fn I(self) {
