@@ -99,4 +99,20 @@ let thing = X(maybe_thing);
 let thing = X(good_thing);
 ```
 
+Panics with helpful messages:
+
+```
+let none: Option<i32> = None;
+let value = none.X();
+// thread 'main' panicked at src/main.rs:3:19:
+// impossible `None` option
+```
+
+```
+let err: Result<i32, _> = Err("something went wrong");
+let value = err.X();
+// thread 'main' panicked at src/main.rs:3:18:
+// impossible `Err` result: something went wrong
+```
+
 
