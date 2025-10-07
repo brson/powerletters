@@ -11,7 +11,7 @@ where
 
 /// Clone.
 #[allow(non_snake_case)]
-pub fn C<T>(o: T) -> T
+pub fn C<T>(o: &T) -> T
 where
     T: Clone,
 {
@@ -102,7 +102,7 @@ where
 #[extension_trait::extension_trait]
 pub impl<T> QuickToOwned for T
 where
-    T: ToOwned,
+    T: ToOwned + ?Sized,
 {
     type Owned = T::Owned;
 
@@ -112,34 +112,6 @@ where
     }
 }
 
-/// Expect ok or some.
-#[extension_trait::extension_trait]
-pub impl<T> OptionExpect<T> for Option<T> {
-    #[track_caller]
-    #[allow(non_snake_case)]
-    fn X(self) -> T {
-        match self {
-            Some(v) => v,
-            None => panic!("impossible `None` option"),
-        }
-    }
-}
-
-/// Expect ok or some.
-#[extension_trait::extension_trait]
-pub impl<T, E> ResultExpect<T, E> for Result<T, E>
-where
-    E: std::error::Error,
-{
-    #[track_caller]
-    #[allow(non_snake_case)]
-    fn X(self) -> T {
-        match self {
-            Ok(v) => v,
-            Err(e) => panic!("impossible `Err` result: {e}"),
-        }
-    }
-}
 
 /// Ignore a `Result`.
 ///
