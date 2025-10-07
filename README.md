@@ -31,7 +31,7 @@ In action:
 ## Power `Clone`
 
 ```
-use powerletters::*:
+use powerletters::*;
 
 let bagostuff = vec!["a", "b", "c"];
 let newbag = bagostuff.C();
@@ -44,7 +44,7 @@ let newbag = C(&bagostuff);
 ## Power `ToOwned`
 
 ```
-use powerletters::*:
+use powerletters::*;
 
 let yourpath = Path::new("chill");
 let mypath = yourpath.O();
@@ -57,7 +57,7 @@ let mypath = O(yourpath);
 ## Power `ToString`
 
 ```
-use powerletters::*:
+use powerletters::*;
 
 let s: String = S("foo");
 
@@ -87,7 +87,7 @@ introduce unintended bugs like ignoring futures.
 ## Power `expect` for `Result` and `Option`.
 
 ```
-use powerletters::*:
+use powerletters::*;
 
 let maybe_thing = Some("thing");
 let thing = maybe_thing.X(); // like `.expect("some baloney")`

@@ -11,8 +11,32 @@
 //! All operations are provided as both functions and methods.
 //! Sometimes one reads better than the other.
 //!
+//! In action:
 //!
-//! ### Power `Clone`
+//! ```rust
+//! # use powerletters::*;
+//! # use std::path::Path;
+//! # struct PathGen;
+//! # impl PathGen {
+//! #     fn from_path(&self, _: &Path) -> Option<String> { Some("path".to_string()) }
+//! # }
+//! # let path = Path::new("a/b/c");
+//! # let pathgen = PathGen;
+//!   let mut parents: Vec<_> = path.ancestors().skip(1).map(|path| {
+//!       if path == Path::new("") {
+//!           let parent_path = pathgen.from_path(path).X();
+//!           let parent_label = S("<root>");
+//!           (parent_path, parent_label)
+//!       } else {
+//!           let parent_path = pathgen.from_path(path).X();
+//!           let parent_label = path.iter().last().X().to_string_lossy().S();
+//!           (parent_path, parent_label)
+//!       }
+//!   }).collect();
+//! ```
+//!
+//!
+//! ## Power `Clone`
 //!
 //! ```
 //! use powerletters::*;
@@ -25,7 +49,7 @@
 //! ```
 //!
 //!
-//! ### Power `ToOwned`
+//! ## Power `ToOwned`
 //!
 //! ```
 //! use powerletters::*;
@@ -39,7 +63,7 @@
 //! ```
 //!
 //!
-//! ### Power `ToString`
+//! ## Power `ToString`
 //!
 //! ```
 //! use powerletters::*;
@@ -51,7 +75,7 @@
 //! ```
 //!
 //!
-//! ### Power ignore `Result` - kick that `Result` to the curb!
+//! ## Power ignore `Result` - kick that `Result` to the curb!
 //!
 //! ```
 //! use powerletters::*;
@@ -69,7 +93,7 @@
 //! introduce unintended bugs like ignoring futures.
 //!
 //!
-//! ### Power `expect` for `Result` and `Option`.
+//! ## Power `expect` for `Result` and `Option`.
 //!
 //! ```
 //! use powerletters::*;
