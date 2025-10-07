@@ -2,6 +2,12 @@
 name = "powerletters"
 version = "0.1.0"
 edition = "2024"
+authors = ["Brian Anderson <andersrb@gmail.com>"]
+license = "CC0-1.0 OR MIT OR Apache-2.0"
+description = "Concise spellings of common Rust operations"
+repository = "https://github.com/brson/powerletters"
+keywords = ["utility", "convenience"]
+categories = ["rust-patterns"]
 
 [dependencies]
 extension-trait = "1.0"
