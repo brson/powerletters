@@ -1,6 +1,6 @@
 # Power Letters for Rust
 
-Concise and visually distinct spellings of common Rust operations.
+Concise spellings of common Rust operations.
 
 
 ### "to `String`"

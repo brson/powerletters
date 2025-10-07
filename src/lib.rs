@@ -1,4 +1,4 @@
-//! Concise and visually distinct spellings of common Rust operations.
+//! Concise spellings of common Rust operations.
 
 /// To `String`.
 #[allow(non_snake_case)]
