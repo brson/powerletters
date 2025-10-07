@@ -1,0 +1,7 @@
+[package]
+name = "powerletters"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+extension-trait = "1.0"
